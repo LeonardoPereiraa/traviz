@@ -3,12 +3,7 @@ git:
 
 jobs:
   include:
-    - name: "iOS tests, stable channel"
-      os: osx
-      osx_image: xcode11.2
-      language: objective-c
-      script: ./tool/travis_ios_script.sh
-      env: FLUTTER_VERSION=stable
+    
 
     - name: "Android tests, stable channel"
       os: linux
@@ -18,55 +13,11 @@ jobs:
         components:
           - build-tools-28.0.3
           - android-28
-      script: ./tool/travis_android_script.sh
+      install:
+	  - git clone https://github.com/flutter/flutter.git -b beta
+          - ./flutter/bin/flutter doctor
+      script: 
+	  - ls
+
       env: FLUTTER_VERSION=stable
 
-    - name: "Flutter tests, stable channel"
-      os: linux
-      dist: trusty
-      language: ruby
-      script: ./tool/travis_flutter_script.sh
-      env: FLUTTER_VERSION=stable
-
-    - name: "iOS tests, beta channel"
-      os: osx
-      osx_image: xcode11.2
-      language: objective-c
-      script: ./tool/travis_ios_script.sh
-      env: FLUTTER_VERSION=beta
-
-    - name: "Android tests, beta channel"
-      os: linux
-      dist: trusty
-      language: android
-      android:
-        components:
-          - build-tools-28.0.3
-          - android-28
-      script: ./tool/travis_android_script.sh
-      env: FLUTTER_VERSION=beta
-
-    - name: "Flutter tests, beta channel"
-      os: linux
-      dist: trusty
-      language: ruby
-      script: ./tool/travis_flutter_script.sh
-      env: FLUTTER_VERSION=beta
-
-  allow_failures:
-    - env: FLUTTER_VERSION=beta
-
-env:
-  global:
-    - ANDROID_SDK_ROOT=/opt/android
-
-
-script:
-- ls
-#- cd buspay
-#- ls
-#- flutter build apk
-#- ../flutter/bin/flutter test
-cache:
-  directories:
-  - $HOME/.pub-cache
