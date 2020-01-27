@@ -11,30 +11,7 @@ env:
 install:
 - git clone https://github.com/flutter/flutter.git -b beta
 - ./flutter/bin/flutter doctor
-script:
 
-
-- ls
-#- export PATH="$PATH:`pwd`/flutter/bin"
-#- cd buspay
-#- ls
-#- flutter build apk
-#- ../flutter/bin/flutter test
-cache:
-  directories:
-  - $HOME/.pub-cachelanguage: dart
-dist: xenial
-
-addons:
-  apt:
-    packages:
-    - lib32stdc++6
-env:
-  global:
-    - ANDROID_SDK_ROOT=/opt/android
-install:
-- git clone https://github.com/flutter/flutter.git -b beta
-- ./flutter/bin/flutter doctor
 script:
 # Setup gradle.
 - wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip
@@ -57,6 +34,7 @@ script:
 - yes | sdkmanager "build-tools;25.0.2" > /dev/null
 - yes | sdkmanager "system-images;android-25;google_apis;armeabi-v7a" > /dev/null
 /dev/null
+
 
 - ls
 #- export PATH="$PATH:`pwd`/flutter/bin"
