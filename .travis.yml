@@ -21,19 +21,9 @@ script:
 # (Quick fix: Silence sdkmanager warning)
 - mkdir -p /home/travis/.android
 - echo 'count=0' > /home/travis/.android/repositories.cfg
-# Download and setup Android SDK tools.
-- wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-- mkdir android-sdk-tools
-- unzip -qq sdk-tools-linux-4333796.zip -d android-sdk-tools
-- export PATH=`pwd`/android-sdk-tools/tools/bin:$PATH
-- mkdir -p $ANDROID_SDK_ROOT
 
-- yes | sdkmanager --licenses
-- yes | sdkmanager "emulator" "tools" "platform-tools" > /dev/null
-- yes | sdkmanager "platforms;android-25" > /dev/null
-- yes | sdkmanager "build-tools;25.0.2" > /dev/null
-- yes | sdkmanager "system-images;android-25;google_apis;armeabi-v7a" > /dev/null
-/dev/null
+
+
 
 
 - ls
