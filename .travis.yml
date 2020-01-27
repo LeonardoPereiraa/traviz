@@ -32,7 +32,8 @@ install:
 script:
 
 - ls
-
+- export PATH="$PATH:`pwd`/flutter/bin"
+- flutter doctor -v
 
 cache:
   directories:
