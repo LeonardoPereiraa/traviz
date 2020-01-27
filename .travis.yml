@@ -1,12 +1,39 @@
 
-os: linux
-dist: trusty
+language: dart
 language: android
+dist: xenial
+sudo: required
+
+
+
+addons:
+  apt:
+    packages:
+    - lib32stdc++6
+
 android:
   components:
-     - build-tools-28.0.3
-     - android-28
-script:
--ls
-env: FLUTTER_VERSION=stable
+    - build-tools-28.0.3
+    - android-28
+    - add-on
+    - extra
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
+env:
+  global:
+    - ANDROID_SDK_ROOT=/opt/android
+install:
+- git clone https://github.com/flutter/flutter.git -b beta
+- ./flutter/bin/flutter doctor
+- sudo apt-get install default-jdk
+script:
+
+- ls
+
+
+cache:
+  directories:
+  - $HOME/.pub-cache
