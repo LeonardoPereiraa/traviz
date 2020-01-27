@@ -11,5 +11,6 @@ jobs:
         components:
           - build-tools-28.0.3
           - android-28
-      script: ./tool/travis_android_script.sh
+      script: 
+	  - ls
       env: FLUTTER_VERSION=stable
