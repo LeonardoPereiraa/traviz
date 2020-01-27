@@ -3,8 +3,6 @@ git:
 
 jobs:
   include:
-    
-
     - name: "Android tests, stable channel"
       os: linux
       dist: trusty
@@ -13,11 +11,5 @@ jobs:
         components:
           - build-tools-28.0.3
           - android-28
-      install:
-	  - git clone https://github.com/flutter/flutter.git -b beta
-          - ./flutter/bin/flutter doctor
-      script: 
-	  - ls
-
+      script: ./tool/travis_android_script.sh
       env: FLUTTER_VERSION=stable
-
