@@ -30,7 +30,7 @@ env:
 install:
 - git clone https://github.com/flutter/flutter.git -b beta
 - ./flutter/bin/flutter doctor
-- apt-get install default-jdk
+- sudo apt-get install default-jdk
 
 script:
 # Setup gradle.
