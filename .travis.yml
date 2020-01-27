@@ -1,16 +1,12 @@
-git:
-  depth: 3
 
-jobs:
-  include:
-    - name: "Android tests, stable channel"
-      os: linux
-      dist: trusty
-      language: android
-      android:
-        components:
-          - build-tools-28.0.3
-          - android-28
-      script: 
-	  - ls
-      env: FLUTTER_VERSION=stable
+os: linux
+dist: trusty
+language: android
+android:
+components:
+- build-tools-28.0.3
+- android-28
+script:
+-ls
+env: FLUTTER_VERSION=stable
+
