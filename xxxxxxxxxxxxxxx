@@ -46,9 +46,9 @@ script:
 - ls
 - export PATH="$PATH:`pwd`/flutter/bin"
 - flutter doctor -v
-#- cd buspay
-#- ls
-#- flutter build apk
+- cd buspay
+- ls
+- flutter build apk
 #- ../flutter/bin/flutter test
 cache:
   directories:

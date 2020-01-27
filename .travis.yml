@@ -37,6 +37,9 @@ script:
 - ls
 - export PATH="$PATH:`pwd`/flutter/bin"
 - flutter doctor -v
+- cd buspay
+- ls
+- flutter build apk
 
 cache:
   directories:
